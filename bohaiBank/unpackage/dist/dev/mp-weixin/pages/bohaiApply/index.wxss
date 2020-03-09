@@ -1,0 +1,128 @@
+
+.bohai-img.data-v-65d10b0b {
+	display: block;
+	width: 100%;
+	height: 108px;
+}
+.bohaiApply.data-v-65d10b0b {
+	font-size: 32rpx;
+	color: #333333;
+	background: rgba(255, 255, 255, 1);
+	height: 2600rpx;
+	position: relative;
+	margin: 0 20rpx;
+}
+.bohaiApply_item.data-v-65d10b0b {
+	height: 82rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	line-height: 82rpx;
+	border-bottom: 2rpx solid rgba(229, 229, 229, 1);
+}
+.bohai_item_lable.data-v-65d10b0b {
+	-webkit-flex-basis: 200rpx;
+	        flex-basis: 200rpx;
+	padding-left: 20rpx;
+}
+.bohai_item_content.data-v-65d10b0b {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+}
+.bohai_item_content_bohai.data-v-65d10b0b {
+	position: relative;
+}
+.iconclass.data-v-65d10b0b {
+	position: absolute;
+	right: 0;
+}
+.uni-input-style.data-v-65d10b0b {
+	width: 100%;
+}
+.input_color.data-v-65d10b0b {
+	color: #dbdbdb;
+}
+.bohaiApply_ft.data-v-65d10b0b {
+	position: absolute;
+	left: 0;
+	bottom: 20rpx;
+	width: 100%;
+	height: 100rpx;
+}
+.marryPhoto.data-v-65d10b0b{
+	height: 100rpx;
+	width: 100rpx;
+	line-height: 100rpx;
+	text-align: center;
+	background: #C0C0C0;
+	position: relative;
+	margin-left: 20rpx;
+}
+.btn.data-v-65d10b0b {
+	height: 100rpx;
+
+	text-align: center;
+	line-height: 100rpx;
+	border-radius: 5rpx;
+	background: #e8be2e;
+	color: #ffffff;
+	margin-left: 20rpx;
+	margin-right: 20rpx;
+}
+/* 提示窗口 */
+.uni-tip.data-v-65d10b0b {
+	
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	
+	padding: 15px;
+	width: 300px;
+	background-color: #fff;
+	border-radius: 10px;
+}
+.uni-tip-title.data-v-65d10b0b {
+	margin-bottom: 10px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 16px;
+	color: #333;
+}
+.uni-tip-content.data-v-65d10b0b {
+	/* padding: 15px;
+	*/
+	font-size: 14px;
+	color: #666;
+}
+.uni-tip-group-button.data-v-65d10b0b {
+	
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	margin-top: 20px;
+}
+.uni-tip-button.data-v-65d10b0b {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	text-align: center;
+	font-size: 14px;
+	color: #3b4144;
+}
+

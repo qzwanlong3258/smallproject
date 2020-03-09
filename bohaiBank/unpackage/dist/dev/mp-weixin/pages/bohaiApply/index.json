@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "按揭贷款",
+  "usingComponents": {
+    "uni-popup": "/components/uni-popup/uni-popup"
+  }
+}
