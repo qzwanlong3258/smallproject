@@ -3,13 +3,13 @@
 	{
 		"path": "pages/bohaiApply/index",
 		"style": {
-			"navigationBarTitleText": "按揭贷款"
+			"navigationBarTitleText": "线上按揭贷款"
 		}
 	},
 		{
 			"path": "pages/login/index",
 			"style": {
-				"navigationBarTitleText": "按揭贷款"
+				"navigationBarTitleText": "线上按揭贷款"
 			}
 		}
 		

@@ -1,37 +1,53 @@
 
-.content {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-webkit-flex-direction: column;
-	        flex-direction: column;
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	        align-items: center;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	        justify-content: center;
+.login.data-v-0c9c1fb4{
+	height: 100px;
+	background: rgba(255, 255, 255, 1);
 }
-.logo {
-	height: 200rpx;
-	width: 200rpx;
-	margin-top: 200rpx;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 50rpx;
+.login-hd.data-v-0c9c1fb4 {
+	height: 65px;
+	padding: 28px 0 12px 0;
+	text-align: center;
 }
-.text-area {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	        justify-content: center;
+.login-hd image.data-v-0c9c1fb4{
+	height: 65px;
+	width: 65px;
 }
-.title {
-	font-size: 36rpx;
-	color: #8f8f94;
+.text.data-v-0c9c1fb4{
+	width:109px;
+	height:25px;
+	font-size:18px;
+	font-family:PingFangSC-Semibold,PingFang SC;
+	font-weight:600;
+	color:rgba(51,51,51,1);
+	line-height:25px;
+	margin: 0 auto;
+}
+.input.data-v-0c9c1fb4{
+	width:104px;
+	height:24px;
+	font-size:17px;
+	font-family:PingFangSC-Regular,PingFang SC;
+	font-weight:400;
+	color:rgba(204,204,204,1);
+	line-height:24px;
+}
+.getcode.data-v-0c9c1fb4{
+	width:72px;
+	height:20px;
+	font-size:14px;
+	font-family:PingFangSC-Regular,PingFang SC;
+	font-weight:400;
+	color:rgba(51,51,51,1);
+	line-height:20px;
+}
+.btn.data-v-0c9c1fb4{
+	margin: 30.25px 16px;
+	height:47px;
+	background:rgba(232,190,46,1);
+	border-radius:2px;
+	text-align: center;
+	line-height: 47px;
+	color: #FFFFFF;
+	font-size: 18px;
 }
 

@@ -2,7 +2,9 @@ const staticUrl = '/static/img'
 
 module.exports={
 	/** 授权 */
-	BOHAI_LOGO: `${staticUrl}/bohai.png`,
+	BOHAI: `${staticUrl}/bohai.png`,
+	BOHAI_LOGIN: `${staticUrl}/bohailogo.jpg`
+	
 	
 	
 }
