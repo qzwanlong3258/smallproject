@@ -13,15 +13,28 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*每个页面公共css */
 @font-face {
   font-family: 'iconfont';  /* project id 1440704 */
-  src: url('//at.alicdn.com/t/font_1440704_53e2sj9nlg6.eot');
-  src: url('//at.alicdn.com/t/font_1440704_53e2sj9nlg6.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1440704_53e2sj9nlg6.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1440704_53e2sj9nlg6.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1440704_53e2sj9nlg6.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1440704_53e2sj9nlg6.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_1440704_n0t46fgjya.eot');
+  src: url('//at.alicdn.com/t/font_1440704_n0t46fgjya.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1440704_n0t46fgjya.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1440704_n0t46fgjya.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1440704_n0t46fgjya.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1440704_n0t46fgjya.svg#iconfont') format('svg');
 }
 .iconfont {
   font-family: "iconfont" !important;
@@ -35,5 +48,8 @@
 }
 .iconpaizhao:before {
   content: "\E602";
+}
+.iconcha:before {
+  content: "\E658";
 }
 

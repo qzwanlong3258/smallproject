@@ -1,17 +1,18 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 	{
-		"path": "pages/bohaiApply/index",
+		"path": "pages/login/index",
 		"style": {
 			"navigationBarTitleText": "线上按揭贷款"
 		}
 	},
-		{
-			"path": "pages/login/index",
-			"style": {
-				"navigationBarTitleText": "线上按揭贷款"
-			}
+	{
+		"path": "pages/bohaiApply/index",
+		"style": {
+			"navigationBarTitleText": "线上按揭贷款"
 		}
+	}
+		
 		
 	],
 	"globalStyle": {

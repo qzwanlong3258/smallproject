@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/bohaiApply/index",
-    "pages/login/index"
+    "pages/login/index",
+    "pages/bohaiApply/index"
   ],
   "subPackages": [],
   "window": {
@@ -11,5 +11,5 @@
     "backgroundColor": "#F8F8F8"
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap2.json"
+  "sitemapLocation": "sitemap68.json"
 }

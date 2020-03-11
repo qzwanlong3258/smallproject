@@ -27,7 +27,7 @@
 		getPhoneLogin
 	} from '@/api/auth.js'
 	import {
-		setStorage
+		setStorage, getStorage
 	} from '@/utils/storage.js'
 	import { LOGIN, APPLY} from '@/config/router.js';
 	export default {
@@ -43,6 +43,8 @@
 			}
 		},
 		onLoad() {
+			
+			
 
 		},
 		methods: {
