@@ -1,5 +1,5 @@
 <template>
-	<view class="bohaiApply">
+	<view class="bohaiApply" :style="{height: bohaiApplyHeight}">
 		<image :src="img" mode="widthFix" class="bohai-img"></image>
 		<view style="height:28px ;display: flex;"> 
 		<view class="shuxian" ></view>
@@ -85,7 +85,7 @@
 		</view>
 		<view style="height:28px ;display: flex;">
 		<view class="shuxian" ></view>
-		<view class="title" >信息采集</view></view>
+		<view class="title" >上传按揭贷款资料</view></view>
 		
         <view  class="titleChild">身份证信息</view>
 		<!-- 照相 身份证 -->
@@ -93,25 +93,25 @@
 			<scroll-view  scroll-x="true" style="flex: 1;white-space: nowrap;
 			width: 100%;">
 			<!-- 正面 -->
-			<view class="photo-box" @click="chooseimage('cardBeforeImg')" v-if="dataList.cardBeforeImg === ''">
+			<view class="photo-box" @click="chooseimage('cardBeforeImg')" v-if="dataL.cardBeforeImg === ''">
 				<icon
 					class="iconfont  iconpaizhao iconphoto"
 					
 				></icon>
 				<view class="icon-text">正面</view>
 			</view>
-			<image :src="dataList.cardBeforeImg" mode="aspectFit" v-if="dataList.cardBeforeImg != ''" style="
+			<image :src="dataL.cardBeforeImg" mode="aspectFit" v-if="dataL.cardBeforeImg != ''" style="
 			height: 150rpx;width: 230rpx;
 			display: inline-block;margin-left: 20rpx;"></image>
 			<!-- 反面 -->
-			<view class="photo-box" @click="chooseimage('cardAfterImg')" v-if="dataList.cardAfterImg === ''">
+			<view class="photo-box" @click="chooseimage('cardAfterImg')" v-if="dataL.cardAfterImg === ''">
 				<icon
 					class="iconfont  iconpaizhao iconphoto"
 					
 				></icon>
 				<view class="icon-text">背面</view>
 			</view>
-			<image :src="dataList.cardAfterImg" mode="aspectFit" v-if="dataList.cardAfterImg != ''" style="
+			<image :src="dataL.cardAfterImg" mode="aspectFit" v-if="dataL.cardAfterImg != ''" style="
 			width: 230rpx;height: 150rpx;
 			display: inline-block;margin-left: 16px;"></image>
 			</scroll-view>
@@ -122,36 +122,36 @@
 			<scroll-view  scroll-x="true" style="flex: 1;white-space: nowrap;
 		width: 100%;">
 			<!-- 首页 -->
-			<view class="photo-box" @click="chooseimage('bookletIndexImg')" v-if="dataList.bookletIndexImg === ''">
+			<view class="photo-box" @click="chooseimage('bookletIndexImg')" v-if="dataL.bookletIndexImg === ''">
 				<icon
 					class="iconfont  iconpaizhao iconphoto"
 					
 				></icon>
 				<view class="icon-text">首页</view>
 			</view>
-			<image :src="dataList.bookletIndexImg" mode="aspectFit" v-if="dataList.bookletIndexImg != ''" style="
+			<image :src="dataL.bookletIndexImg" mode="aspectFit" v-if="dataL.bookletIndexImg != ''" style="
 			width: 230rpx;height: 150rpx;
 			display: inline-block;margin-left: 20rpx;"></image>
 			<!-- 户主页 -->
-			<view class="photo-box" @click="chooseimage('bookletThisImg')" v-if="dataList.bookletThisImg === ''">
+			<view class="photo-box" @click="chooseimage('bookletThisImg')" v-if="dataL.bookletThisImg === ''">
 				<icon
 					class="iconfont  iconpaizhao iconphoto"
 					
 				></icon>
 				<view class="icon-text">户主页</view>
 			</view>
-			<image :src="dataList.bookletThisImg" mode="aspectFit" v-if="dataList.bookletThisImg != ''" style="
+			<image :src="dataL.bookletThisImg" mode="aspectFit" v-if="dataL.bookletThisImg != ''" style="
 			width: 230rpx;height: 150rpx;
 			display: inline-block;margin-left: 16px;"></image>
 			<!-- 本人页 -->
-			<view class="photo-box" @click="chooseimage('bookletMainImg')" v-if="dataList.bookletMainImg === ''">
+			<view class="photo-box" @click="chooseimage('bookletMainImg')" v-if="dataL.bookletMainImg === ''">
 				<icon
 					class="iconfont  iconpaizhao iconphoto"
 					
 				></icon>
 				<view class="icon-text">本人页</view>
 			</view>
-			<image :src="dataList.bookletMainImg" mode="aspectFit" v-if="dataList.bookletMainImg != ''" style="
+			<image :src="dataL.bookletMainImg" mode="aspectFit" v-if="dataL.bookletMainImg != ''" style="
 			width: 230rpx;height: 150rpx;
 			display: inline-block;margin-left: 16px;"></image>
 			
@@ -179,18 +179,18 @@
 			<scroll-view  scroll-x="true" style="flex: 1;white-space: nowrap;
 			width: 100%;">
 			<!-- 收入证明 -->
-			<view class="photo-box" @click="chooseimage('incomeProof')" v-if="dataList.incomeProof === ''">
+			<view class="photo-box" @click="chooseimage('incomeProof')" v-if="dataL.incomeProof === ''">
 				<icon
 					class="iconfont  iconpaizhao iconphoto"
 					
 				></icon>
 				<view class="icon-text">收入证明</view>
 			</view>
-			<image :src="dataList.incomeProof" mode="aspectFit" v-if="dataList.incomeProof != ''" style="
+			<image :src="dataL.incomeProof" mode="aspectFit" v-if="dataL.incomeProof != ''" style="
 			width: 230rpx;height: 150rpx;
 			display: inline-block;margin-left: 20rpx;"></image>
 			<!-- 工资流水 -->
-			<image :src="item" v-for="(item,index) in dataList.thisRunningWater" :key="index" mode="aspectFit" v-if="item!= ''" style="
+			<image :src="item" v-for="(item,index) in dataL.thisRunningWater" :key="index" mode="aspectFit" v-if="item!= ''" style="
 			width: 230rpx;height: 150rpx;
 			display: inline-block;margin-left: 16px;"></image>
 			<view class="photo-box" @click="chooseimage('thisRunningWater')" >
@@ -208,21 +208,21 @@
 			<scroll-view  scroll-x="true" style="flex: 1;white-space: nowrap;
 			width: 100%;">
 			<!-- 营业执照 -->
-			<view class="photo-box" @click="chooseimage('incomeProof')" v-if="dataList.incomeProof === ''">
+			<view class="photo-box" @click="chooseimage('incomeProof')" v-if="dataL.incomeProof === ''">
 				<icon
 					class="iconfont  iconpaizhao iconphoto"
 					
 				></icon>
 				<view class="icon-text">营业执照</view>
 			</view>
-			<image :src="dataList.incomeProof" mode="aspectFit" v-if="dataList.incomeProof != ''" style="
+			<image :src="dataList.incomeProof" mode="aspectFit" v-if="dataL.incomeProof != ''" style="
 			width: 230rpx;height: 150rpx;
 			display: inline-block;margin-left: 20rpx;"></image>
 			<!-- 企业流水 -->
-			<image :src="item" v-for="(item,index) in dataList.thisRunningWater" :key="index" mode="aspectFit" v-if="item != ''" style="
+			<image :src="item" v-for="(item,index) in dataL.thisRunningWater" :key="index" mode="aspectFit" v-if="item != ''" style="
 			width: 230rpx;height: 150rpx;
 			display: inline-block;margin-left: 16px;"></image>
-			</scroll-view>
+			
 			<view class="photo-box" @click="chooseimage('thisRunningWater')" >
 				<icon
 					class="iconfont  iconpaizhao iconphoto"
@@ -230,7 +230,7 @@
 				></icon>
 				<view class="icon-text">企业流水</view>
 			</view>
-			
+			</scroll-view>
 		</view>
 		
 		
@@ -249,18 +249,19 @@
 				</view>
 				<!-- 结婚证  -->
 				<view style="display: flex;border-bottom: 1px solid #EEEEEE;" >
+					<scroll-view  scroll-x="true" style="flex: 1;white-space: nowrap;
+					width: 100%;">
 					<!-- 结婚证 -->
-					<view class="photo-box" @click="chooseimage('marriageCertificateType')" v-if="dataList.marriageCertificateType === ''">
+					<view class="photo-box" @click="chooseimage('marriageCertificateType')" v-if="dataL.marriageCertificateType === ''">
 						<icon
 							class="iconfont  iconpaizhao iconphoto"
 							
 						></icon>
 						<view class="icon-text">结婚证</view>
 					</view>
-					<image :src="dataList.marriageCertificateType" mode="aspectFit" v-if="dataList.marriageCertificateType != ''" style="height: 
-					width: 230rpx;height: 150rpx;
-					display: block;margin-left: 20rpx;"></image>
-					
+					<image :src="dataL.marriageCertificateType" mode="aspectFit" v-if="dataL.marriageCertificateType != ''" style="width: 230rpx;height: 150rpx;
+			display: inline-block;margin-left: 20rpx;"></image>
+					</scroll-view>
 				</view>
 				
 				<view class="bohaiApply_item" style="border-bottom:1px solid #FFFFFF ;">
@@ -280,18 +281,18 @@
 					<scroll-view  scroll-x="true" style="flex: 1;white-space: nowrap;
 					width: 100%;">
 					<!-- 收入证明 -->
-					<view class="photo-box" @click="chooseimage('marriageIncomeProof')" v-if="dataList.marriageIncomeProof === ''">
+					<view class="photo-box" @click="chooseimage('marriageIncomeProof')" v-if="dataL.marriageIncomeProof === ''">
 						<icon
 							class="iconfont  iconpaizhao iconphoto"
 							
 						></icon>
 						<view class="icon-text">收入证明</view>
 					</view>
-					<image :src="dataList.marriageIncomeProof" mode="aspectFit" v-if="dataList.marriageIncomeProof != ''" style="
+					<image :src="dataL.marriageIncomeProof" mode="aspectFit" v-if="dataL.marriageIncomeProof != ''" style="
 					width: 230rpx;height: 150rpx;
 					display: inline-block;margin-left: 20rpx;"></image>
 					<!-- 工资流水 -->
-					<image :src="item" v-for="(item,index) in dataList.spouseRunningWater" :key="index" mode="aspectFit" v-if="item != ''" style="
+					<image :src="item" v-for="(item,index) in dataL.spouseRunningWater" :key="index" mode="aspectFit" v-if="item != ''" style="
 					width: 230rpx;height: 150rpx;
 					display: inline-block;margin-left: 16px;"></image>
 					<view class="photo-box" @click="chooseimage('spouseRunningWater')" >
@@ -309,21 +310,21 @@
 					<scroll-view  scroll-x="true" style="flex: 1;white-space: nowrap;
 					width: 100%;">
 					<!-- 营业执照 -->
-					<view class="photo-box" @click="chooseimage('marriageIncomeProof')" v-if="dataList.marriageIncomeProof === ''">
+					<view class="photo-box" @click="chooseimage('marriageIncomeProof')" v-if="dataL.marriageIncomeProof === ''">
 						<icon
 							class="iconfont  iconpaizhao iconphoto"
 							
 						></icon>
 						<view class="icon-text">营业执照</view>
 					</view>
-					<image :src="dataList.marriageIncomeProof" mode="aspectFit" v-if="dataList.marriageIncomeProof != ''" style="
+					<image :src="dataL.marriageIncomeProof" mode="aspectFit" v-if="dataL.marriageIncomeProof != ''" style="
 					width: 230rpx;height: 150rpx;
 					display: inline-block;margin-left: 20rpx;"></image>
 					<!-- 企业流水 -->
-					<image :src="item" v-for="(item,index) in dataList.spouseRunningWater" :key="index" mode="aspectFit" v-if="item != ''" style="
+					<image :src="item" v-for="(item,index) in dataL.spouseRunningWater" :key="index" mode="aspectFit" v-if="item != ''" style="
 					width: 230rpx;height: 150rpx;
 					display: inline-block;margin-left: 16px;"></image>
-					</scroll-view>
+					
 					<view class="photo-box" @click="chooseimage('spouseRunningWater')" >
 						<icon
 							class="iconfont  iconpaizhao iconphoto"
@@ -331,7 +332,7 @@
 						></icon>
 						<view class="icon-text">企业流水</view>
 					</view>
-					
+					</scroll-view>
 				</view>
 			</view>
 		<!-- 离婚证  -->
@@ -339,14 +340,14 @@
 			<scroll-view  scroll-x="true" style="flex: 1;white-space: nowrap;
 			width: 100%;">
 			<!-- 离婚证 -->
-			<view class="photo-box" @click="chooseimage('divorce')" v-if="dataList.divorce === ''">
+			<view class="photo-box" @click="chooseimage('divorce')" v-if="dataL.divorce === ''">
 				<icon
 					class="iconfont  iconpaizhao iconphoto"
 					
 				></icon>
 				<view class="icon-text">离婚证</view>
 			</view>
-			<image :src="dataList.divorce" mode="aspectFit" v-if="dataList.divorce != ''" style="
+			<image :src="dataL.divorce" mode="aspectFit" v-if="dataL.divorce != ''" style="
 			width: 230rpx;height: 150rpx;
 			display: inline-block;margin-left: 20rpx;"></image>
 			</scroll-view>
@@ -356,7 +357,7 @@
 			<view class="bohai_item_content" @click="dateopen">
 				<hTimePicker sTime="0" cTime="24" interval="1" sDay='2' @changeTime="startChangeTime">
 				 
-				    <input v-model="startTime" type="text" slot="pCon" class="changeTime" placeholder="起始日期">
+				    <input v-model="startTime" type="text" slot="pCon" class="changeTime" placeholder-style="color:#666666" placeholder="起始日期">
 				  
 				</hTimePicker>
 				
@@ -368,7 +369,7 @@
 				
 				<hTimePicker sTime="0" cTime="24" interval="1" sDay='2' @changeTime="closeChangeTime">
 				 
-				    <input v-model="closeTime" type="text" slot="pCon" class="changeTime" placeholder="结束日期">
+				    <input v-model="closeTime" type="text" slot="pCon" placeholder-style="color:#666666" class="changeTime" placeholder="结束日期">
 				  
 				</hTimePicker>
 			</view>
@@ -402,18 +403,21 @@
 			<view class="bohai_item_lable">联系方式</view>
 			<view class="bohai_item_content"><input type="text" placeholder="手机号" placeholder-class="input_color" /></view>
 		</view> -->
-		<view style="text-align: center;padding-bottom: 10rpx;height: 20rpx;">
-			<label class="radio" style="font-size: 25rpx;">
-				<radio value="r1" :checked="agree" @click="agree = !agree" />
-				同意
-				<label class="noticeBook" @click="open" style="color: #333333;">《用户告知书》</label>
-			</label>
+		<view class="ft" style="position: fixed;height: 130rpx;width: 100%;left: 0;bottom: 20px;z-index: 800;background: #FFFFFF;">
+			<view style="text-align: center;padding-bottom: 10rpx;height: 20rpx;">
+				<label class="radio" style="font-size: 25rpx;">
+					<radio value="r1" :checked="agree" @click="agre" />
+					你已完全阅读并确认
+					<label class="noticeBook" @click.stop="open" style="color: #333333;">《用户信息授权协议》</label>的内容
+				</label>
+			</view>
+			<view class="bohaiApply_ft"><view class="btn" @click="submit">提交</view></view>
 		</view>
-		<view class="bohaiApply_ft"><view class="btn" @click="submit">提交</view></view>
+		
 
 		<!-- <uni-popup ref="popup" type="center">底部弹出 Popup</uni-popup> -->
 		<uni-popup ref="popup" type="center" :mask-click="false" @change="change">
-			<view class="uni-tip">
+			<view class="uni-tip" >
 				<text class="uni-tip-title">用户信息授权协议</text>
 				<scroll-view   scroll-y="true" class="scroll-Y uni-tip-content"> 
 				
@@ -453,15 +457,16 @@
 				<text class="uni-tip-content">
 					</text>
 				<view class="uni-tip-group-button">
-					<text class="uni-tip-button" @click="cancel('tip')">取消</text>
-					<text class="uni-tip-button" @click="cancel('tip')">确定</text>
+					<text class="uni-tip-button" @click="cancel('no')">取消</text>
+					<text class="uni-tip-button" @click="cancel('ok')">确定</text>
 				</view>
 			</view>
 			
 		</uni-popup>
-		<uni-popup ref="popupone" type="center" :mask-click="false" @change="change">
+		<uniPopupOne ref="popupone" type="center" :mask-click="false" @popchange="popchange">
 			<view class="uni-tip" style="height: 180px; position: relative;">
-				<icon class="iconfont iconcha" style="position: absolute;right: 10px;top: 0;" @click="poponeclick"></icon>
+				
+				<view class="iconfont iconcha" style="position: absolute;right: 20px;top: 10px;" @click="poponeclick"></view>
 				<view style="height: 60px;width: 100%;text-align: center;"><image :src="rightimg" mode="aspectFill" style="width: 60px;height: 60px;"></image></view>
 				
 				<view style="height:21px;
@@ -469,10 +474,10 @@ font-size:15px;
 font-family:PingFangSC-Medium,PingFang SC;
 font-weight:500;
 color:rgba(51,51,51,1);
-line-height:21px; text-align: center;margin-top: 50px;"> 提交成功</view>
+line-height:21px; text-align: center;margin-top: 100px;"> 提交成功</view>
 			</view>
 			
-		</uni-popup>
+		</uniPopupOne>
 		
 		<!-- <simple-address ref="simpleAddress" :pickerValueDefault="cityPickerValueDefault" @onConfirm="onConfirm" themeColor='#007AFF'></simple-address> -->
 	</view>
@@ -483,6 +488,7 @@ line-height:21px; text-align: center;margin-top: 50px;"> 提交成功</view>
 var _self;
 import { BOHAI ,RIGHT} from '@/config/image.js';
 import uniPopup from '@/components/uni-popup/uni-popup.vue';
+import uniPopupOne from '@/components/uni-popup/uni-popup.vue';
 import status from '../../utils/status.js';
 import hTimePicker from "@/components/h-timePicker/h-timePicker.vue";
 import { LOGIN} from '@/config/router.js';
@@ -500,12 +506,31 @@ export default {
 	components: {
 		uniPopup,
 		 hTimePicker,
+		 uniPopupOne
 		 // Text
 	},
 	data() {
 		return {
+			bohaiApplyHeight:'2350rpx',
 			dataList:{
 				phone:'',
+				cardBeforeImg:'',
+				cardAfterImg:'',
+				bookletIndexImg:'',
+				bookletThisImg:'',
+				bookletMainImg:'',
+				marriageCertificateType:'' ,//结婚证
+				divorce:'',
+				marriageIncomeProof:'',
+				incomeProof:'',
+				thisRunningWater:[
+					
+				],
+				spouseRunningWater:[
+					
+				]
+			},
+			dataL:{
 				cardBeforeImg:'',
 				cardAfterImg:'',
 				bookletIndexImg:'',
@@ -596,11 +621,21 @@ export default {
 		open() {
 			this.$refs.popup.open();
 		},
-		cancel() {
+		cancel(e) {
 			this.$refs.popup.close();
+			if(e == 'ok'){
+				this.agree=true
+			}
+			if(e == 'no'){
+				this.agree=false
+			}
+			console.log(this.agree)
 		},
 		poponeclick(){
 			this.$refs.popupone.close();
+		},
+		popchange(e) {
+			console.log('是否打开:' + e.show);
 		},
 		change(e) {
 			console.log('是否打开:' + e.show);
@@ -621,13 +656,17 @@ export default {
 			this.loanIndex = e.target.value;
 			_self.dataList.loanType = this.loanArray[e.target.value]
 		},
+		agre() {
+			_self.agree=!this.agree
+		},
 		submit() {
 			// uni.navigateTo({
 			// 	url:CHOOSEBUSSINESS
 			// })
+			// console.log(this.agree)
 			if(!this.agree) {
 				uni.showToast({
-				    title: '请阅读用户告知书',
+				    title: '请阅读用户信息授权协议',
 				    duration: 2000,
 					icon:'none'
 				});
@@ -649,6 +688,191 @@ export default {
 				});
 				return;
 			}
+			if(!this.dataList.certificateCode) {
+				uni.showToast({
+				    title: '请输入身份证',
+				    duration: 2000,
+					icon:'none'
+				});
+				return;
+			}
+			if(!this.dataList.loanAmount) {
+				uni.showToast({
+				    title: '请输入贷款金额',
+				    duration: 2000,
+					icon:'none'
+				});
+				return;
+			}
+			if(!this.dataList.loanPeriod) {
+				uni.showToast({
+				    title: '请输入贷款年限',
+				    duration: 2000,
+					icon:'none'
+				});
+				return;
+			}
+			if(!this.dataL.cardBeforeImg) {
+				uni.showToast({
+				    title: '请上传身份证正面',
+				    duration: 2000,
+					icon:'none'
+				});
+				return;
+			}
+			if(!this.dataL.cardAfterImg) {
+				uni.showToast({
+				    title: '请上传身份证背面',
+				    duration: 2000,
+					icon:'none'
+				});
+				return;
+			}
+			if(!this.dataL.bookletIndexImg) {
+				uni.showToast({
+				    title: '请上传户口本首页',
+				    duration: 2000,
+					icon:'none'
+				});
+				return;
+			}
+			if(!this.dataL.bookletThisImg) {
+				uni.showToast({
+				    title: '请上传户口本户主页',
+				    duration: 2000,
+					icon:'none'
+				});
+				return;
+			}
+			if(!this.dataL.bookletMainImg) {
+				uni.showToast({
+				    title: '请上传户口本本人页',
+				    duration: 2000,
+					icon:'none'
+				});
+				return;
+			}
+			if(!this.dataList.faceTime) {
+				uni.showToast({
+				    title: '请输入正确的预约时间',
+				    duration: 2000,
+					icon:'none'
+				});
+				return;
+			}
+			if(this.marriageCurrent ===1){
+				if(!this.dataList.marriageName) {
+					uni.showToast({
+					    title: '请输入配偶姓名',
+					    duration: 2000,
+						icon:'none'
+					});
+					return;
+				}
+				if(!this.dataList.marriageCertificateCode) {
+					uni.showToast({
+					    title: '请输入配偶身份证',
+					    duration: 2000,
+						icon:'none'
+					});
+					return;
+				}
+				if(!this.dataL.marriageCertificateType) {
+					uni.showToast({
+					    title: '请上传结婚证',
+					    duration: 2000,
+						icon:'none'
+					});
+					return;
+				}
+				if(this.spouseCurrent === 0){
+					if(!this.dataL.marriageIncomeProof) {
+						uni.showToast({
+						    title: '请完善信息后提交',
+						    duration: 2000,
+							icon:'none'
+						});
+						return;
+					}
+					if(!this.dataL.spouseRunningWater) {
+						uni.showToast({
+						    title: '请完善信息后提交',
+						    duration: 2000,
+							icon:'none'
+						});
+						return;
+					}
+				}
+				if(this.spouseCurrent === 1){
+					if(!this.dataL.marriageIncomeProof) {
+						uni.showToast({
+						    title: '请完善信息后提交',
+						    duration: 2000,
+							icon:'none'
+						});
+						return;
+					}
+					if(!this.dataL.spouseRunningWater) {
+						uni.showToast({
+						    title: '请完善信息后提交',
+						    duration: 2000,
+							icon:'none'
+						});
+						return;
+					}
+				}
+				
+			}
+			if(this.marriageCurrent ===2){
+				if(!this.dataL.divorce) {
+					uni.showToast({
+					    title: '请上传离婚证',
+					    duration: 2000,
+						icon:'none'
+					});
+					return;
+				}
+				
+			}
+			// console.log(this.thisCurrent)
+			if(this.thisCurrent === 0){
+				if(!this.dataL.incomeProof) {
+					uni.showToast({
+					    title: '请完善信息后提交',
+					    duration: 2000,
+						icon:'none'
+					});
+					return;
+				}
+				if(!this.dataL.thisRunningWater) {
+					uni.showToast({
+					    title: '请完善信息后提交',
+					    duration: 2000,
+						icon:'none'
+					});
+					return;
+				}
+			}
+			// console.log(this.thisCurrent)
+			if(this.thisCurrent === 1){
+				if(!this.dataL.incomeProof) {
+					uni.showToast({
+					    title: '请完善信息后提交',
+					    duration: 2000,
+						icon:'none'
+					});
+					return;
+				}
+				if(!this.dataL.thisRunningWater) {
+					uni.showToast({
+					    title: '请完善信息后提交',
+					    duration: 2000,
+						icon:'none'
+					});
+					return;
+				}
+			}
+			
 			submitData(this.dataList).then(res=>{
 				// uni.showToast({
 				// 				title:'提交成功',
@@ -671,6 +895,17 @@ export default {
 				if (this.marriageItems[i].value === evt.target.value) {
 					this.marriageCurrent = i;
 					_self.dataList.marriageState = evt.target.value
+					if (i == 0){
+						_self.bohaiApplyHeight = '2460rpx'
+					}
+					if (i == 1){
+						_self.bohaiApplyHeight = '3100rpx'
+					}
+					if (i == 2){
+						_self.bohaiApplyHeight = '2500rpx'
+					}
+					
+					
 					break;
 				}
 			}
@@ -703,6 +938,8 @@ export default {
 				success: function(res) {
 					// 返回选定照片的本地文件路径列表，marryPath可以作为img标签的src属性显示图片
 					var imgFiles = res.tempFilePaths[0]
+					
+					
 					uni.uploadFile({
 					                            // 需要上传的地址
 					                            url:UPLOAD,
@@ -718,11 +955,14 @@ export default {
 													// console.log(res1.data )
 													let w=JSON.parse(res1.data)
 													if(e ==='thisRunningWater'||e ==='spouseRunningWater') {
-																	
+														_self.dataL[e].push(imgFiles);			
 														_self.dataList[e].push(w.data);
-														return
+														
+													} else{
+														_self.dataList[e] = w.data;
+														_self.dataL[e] = imgFiles;
 													}
-													_self.dataList[e] = w.data;
+													
 													
 					                            }
 					                        });
@@ -778,6 +1018,10 @@ export default {
 </script>
 
 <style scoped>
+.changeTime{
+	background: #FFFFFF;
+	border: 1px solid #EEEEEE;
+}
 .bohai-img {
 	display: block;
 	width: 100%;
@@ -787,9 +1031,10 @@ export default {
 	font-size: 32rpx;
 	color: #333333;
 	background: rgba(255, 255, 255, 1);
-	height: 2600rpx;
+	
 	position: relative;
 	margin: 0 16px;
+	position: relative;
 }
 
 .bohaiApply_item {
@@ -802,7 +1047,7 @@ export default {
 	flex-basis: 200rpx;
 	padding-left: 20rpx;
 	font-size:13px;
-	font-family:PingFangSC-Regular,PingFang SC;
+	
 	font-weight:400;
 	color:rgba(102,102,102,1);
 	
@@ -812,7 +1057,7 @@ export default {
 	display: flex;
 	align-items: center;
 	font-size:13px;
-	font-family:PingFangSC-Regular,PingFang SC;
+	
 	font-weight:400;
 }
 .bohai_item_content_bohai {
@@ -826,7 +1071,7 @@ export default {
 }
 .title{
 	padding-left: 5px;height:28px;
-	font-size:17px;
+	font-size:15px;
 	font-family:PingFangSC-Medium,PingFang SC;
 	font-weight:500;
 	color:rgba(51,51,51,1);
@@ -835,7 +1080,7 @@ export default {
 .titleChild{
 	width:87px;
 	height:24px;
-	font-size:15px;
+	font-size:14px;
 	font-family:PingFangSC-Regular,PingFang SC;
 	font-weight:400;
 	color:rgba(102,102,102,1);
@@ -872,13 +1117,14 @@ export default {
 	right: 0;
 }
 .scroll-Y{
-	height: 300px;
+	height: 260px;
+	
 }
 .uni-input-style {
 	width: 100%;
 }
 .input_color {
-	
+	font-size:13px;
 	color:#999999;
 }
 .bohaiApply_ft {

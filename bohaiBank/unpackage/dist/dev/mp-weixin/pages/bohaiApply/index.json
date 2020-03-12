@@ -2,6 +2,7 @@
   "navigationBarTitleText": "线上按揭贷款",
   "usingComponents": {
     "uni-popup": "/components/uni-popup/uni-popup",
-    "h-time-picker": "/components/h-timePicker/h-timePicker"
+    "h-time-picker": "/components/h-timePicker/h-timePicker",
+    "uni-popup-one": "/components/uni-popup/uni-popup"
   }
 }

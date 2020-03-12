@@ -30,7 +30,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ 33);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _index_vue_vue_type_style_index_0_id_5b80acf6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.vue?vue&type=style&index=0&id=5b80acf6&scoped=true&lang=css& */ 37);
-/* harmony import */ var _HbuilderX_HBuilderX_2_4_2_20191115_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../HbuilderX/HBuilderX.2.4.2.20191115/HBuilderX/plugins/uniapp-cli/node_modules/vue-loader/lib/runtime/componentNormalizer.js */ 14);
+/* harmony import */ var _HbuilderX_HBuilderX_2_4_2_20191115_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../HbuilderX/HBuilderX.2.4.2.20191115/HBuilderX/plugins/uniapp-cli/node_modules/vue-loader/lib/runtime/componentNormalizer.js */ 16);
 
 
 
@@ -90,11 +90,6 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  if (!_vm._isMounted) {
-    _vm.e0 = function($event) {
-      _vm.agree = !_vm.agree
-    }
-  }
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -607,34 +602,59 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
-var _image = __webpack_require__(/*! @/config/image.js */ 21);
+var _image = __webpack_require__(/*! @/config/image.js */ 23);
+
 
 var _status = _interopRequireDefault(__webpack_require__(/*! ../../utils/status.js */ 35));
 
-var _router = __webpack_require__(/*! @/config/router.js */ 26);
+var _router = __webpack_require__(/*! @/config/router.js */ 12);
 
 var _submit = __webpack_require__(/*! @/api/submit.js */ 36);
 
 
-var _storage = __webpack_require__(/*! @/utils/storage.js */ 24);
+var _storage = __webpack_require__(/*! @/utils/storage.js */ 13);
 
 
-var _api = __webpack_require__(/*! @/config/api.js */ 25);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _self;var uniPopup = function uniPopup() {return __webpack_require__.e(/*! import() | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 39));};var hTimePicker = function hTimePicker() {return __webpack_require__.e(/*! import() | components/h-timePicker/h-timePicker */ "components/h-timePicker/h-timePicker").then(__webpack_require__.bind(null, /*! @/components/h-timePicker/h-timePicker.vue */ 46));};var _default =
+var _api = __webpack_require__(/*! @/config/api.js */ 26);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _self;var uniPopup = function uniPopup() {return __webpack_require__.e(/*! import() | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 39));};var uniPopupOne = function uniPopupOne() {return __webpack_require__.e(/*! import() | components/uni-popup/uni-popup */ "components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 39));};var hTimePicker = function hTimePicker() {return __webpack_require__.e(/*! import() | components/h-timePicker/h-timePicker */ "components/h-timePicker/h-timePicker").then(__webpack_require__.bind(null, /*! @/components/h-timePicker/h-timePicker.vue */ 46));};var _default =
 
 
 {
   components: {
     uniPopup: uniPopup,
-    hTimePicker: hTimePicker
+    hTimePicker: hTimePicker,
+    uniPopupOne: uniPopupOne
     // Text
   },
   data: function data() {
     return {
+      bohaiApplyHeight: '2350rpx',
       dataList: {
         phone: '',
+        cardBeforeImg: '',
+        cardAfterImg: '',
+        bookletIndexImg: '',
+        bookletThisImg: '',
+        bookletMainImg: '',
+        marriageCertificateType: '', //结婚证
+        divorce: '',
+        marriageIncomeProof: '',
+        incomeProof: '',
+        thisRunningWater: [],
+
+
+        spouseRunningWater: [] },
+
+
+
+      dataL: {
         cardBeforeImg: '',
         cardAfterImg: '',
         bookletIndexImg: '',
@@ -725,11 +745,21 @@ var _api = __webpack_require__(/*! @/config/api.js */ 25);function _interopRequi
     open: function open() {
       this.$refs.popup.open();
     },
-    cancel: function cancel() {
+    cancel: function cancel(e) {
       this.$refs.popup.close();
+      if (e == 'ok') {
+        this.agree = true;
+      }
+      if (e == 'no') {
+        this.agree = false;
+      }
+      console.log(this.agree);
     },
     poponeclick: function poponeclick() {
       this.$refs.popupone.close();
+    },
+    popchange: function popchange(e) {
+      console.log('是否打开:' + e.show);
     },
     change: function change(e) {
       console.log('是否打开:' + e.show);
@@ -750,13 +780,17 @@ var _api = __webpack_require__(/*! @/config/api.js */ 25);function _interopRequi
       this.loanIndex = e.target.value;
       _self.dataList.loanType = this.loanArray[e.target.value];
     },
+    agre: function agre() {
+      _self.agree = !this.agree;
+    },
     submit: function submit() {var _this2 = this;
       // uni.navigateTo({
       // 	url:CHOOSEBUSSINESS
       // })
+      // console.log(this.agree)
       if (!this.agree) {
         uni.showToast({
-          title: '请阅读用户告知书',
+          title: '请阅读用户信息授权协议',
           duration: 2000,
           icon: 'none' });
 
@@ -778,6 +812,191 @@ var _api = __webpack_require__(/*! @/config/api.js */ 25);function _interopRequi
 
         return;
       }
+      if (!this.dataList.certificateCode) {
+        uni.showToast({
+          title: '请输入身份证',
+          duration: 2000,
+          icon: 'none' });
+
+        return;
+      }
+      if (!this.dataList.loanAmount) {
+        uni.showToast({
+          title: '请输入贷款金额',
+          duration: 2000,
+          icon: 'none' });
+
+        return;
+      }
+      if (!this.dataList.loanPeriod) {
+        uni.showToast({
+          title: '请输入贷款年限',
+          duration: 2000,
+          icon: 'none' });
+
+        return;
+      }
+      if (!this.dataL.cardBeforeImg) {
+        uni.showToast({
+          title: '请上传身份证正面',
+          duration: 2000,
+          icon: 'none' });
+
+        return;
+      }
+      if (!this.dataL.cardAfterImg) {
+        uni.showToast({
+          title: '请上传身份证背面',
+          duration: 2000,
+          icon: 'none' });
+
+        return;
+      }
+      if (!this.dataL.bookletIndexImg) {
+        uni.showToast({
+          title: '请上传户口本首页',
+          duration: 2000,
+          icon: 'none' });
+
+        return;
+      }
+      if (!this.dataL.bookletThisImg) {
+        uni.showToast({
+          title: '请上传户口本户主页',
+          duration: 2000,
+          icon: 'none' });
+
+        return;
+      }
+      if (!this.dataL.bookletMainImg) {
+        uni.showToast({
+          title: '请上传户口本本人页',
+          duration: 2000,
+          icon: 'none' });
+
+        return;
+      }
+      if (!this.dataList.faceTime) {
+        uni.showToast({
+          title: '请输入正确的预约时间',
+          duration: 2000,
+          icon: 'none' });
+
+        return;
+      }
+      if (this.marriageCurrent === 1) {
+        if (!this.dataList.marriageName) {
+          uni.showToast({
+            title: '请输入配偶姓名',
+            duration: 2000,
+            icon: 'none' });
+
+          return;
+        }
+        if (!this.dataList.marriageCertificateCode) {
+          uni.showToast({
+            title: '请输入配偶身份证',
+            duration: 2000,
+            icon: 'none' });
+
+          return;
+        }
+        if (!this.dataL.marriageCertificateType) {
+          uni.showToast({
+            title: '请上传结婚证',
+            duration: 2000,
+            icon: 'none' });
+
+          return;
+        }
+        if (this.spouseCurrent === 0) {
+          if (!this.dataL.marriageIncomeProof) {
+            uni.showToast({
+              title: '请完善信息后提交',
+              duration: 2000,
+              icon: 'none' });
+
+            return;
+          }
+          if (!this.dataL.spouseRunningWater) {
+            uni.showToast({
+              title: '请完善信息后提交',
+              duration: 2000,
+              icon: 'none' });
+
+            return;
+          }
+        }
+        if (this.spouseCurrent === 1) {
+          if (!this.dataL.marriageIncomeProof) {
+            uni.showToast({
+              title: '请完善信息后提交',
+              duration: 2000,
+              icon: 'none' });
+
+            return;
+          }
+          if (!this.dataL.spouseRunningWater) {
+            uni.showToast({
+              title: '请完善信息后提交',
+              duration: 2000,
+              icon: 'none' });
+
+            return;
+          }
+        }
+
+      }
+      if (this.marriageCurrent === 2) {
+        if (!this.dataL.divorce) {
+          uni.showToast({
+            title: '请上传离婚证',
+            duration: 2000,
+            icon: 'none' });
+
+          return;
+        }
+
+      }
+      // console.log(this.thisCurrent)
+      if (this.thisCurrent === 0) {
+        if (!this.dataL.incomeProof) {
+          uni.showToast({
+            title: '请完善信息后提交',
+            duration: 2000,
+            icon: 'none' });
+
+          return;
+        }
+        if (!this.dataL.thisRunningWater) {
+          uni.showToast({
+            title: '请完善信息后提交',
+            duration: 2000,
+            icon: 'none' });
+
+          return;
+        }
+      }
+      // console.log(this.thisCurrent)
+      if (this.thisCurrent === 1) {
+        if (!this.dataL.incomeProof) {
+          uni.showToast({
+            title: '请完善信息后提交',
+            duration: 2000,
+            icon: 'none' });
+
+          return;
+        }
+        if (!this.dataL.thisRunningWater) {
+          uni.showToast({
+            title: '请完善信息后提交',
+            duration: 2000,
+            icon: 'none' });
+
+          return;
+        }
+      }
+
       (0, _submit.submitData)(this.dataList).then(function (res) {
         // uni.showToast({
         // 				title:'提交成功',
@@ -800,6 +1019,17 @@ var _api = __webpack_require__(/*! @/config/api.js */ 25);function _interopRequi
         if (this.marriageItems[i].value === evt.target.value) {
           this.marriageCurrent = i;
           _self.dataList.marriageState = evt.target.value;
+          if (i == 0) {
+            _self.bohaiApplyHeight = '2460rpx';
+          }
+          if (i == 1) {
+            _self.bohaiApplyHeight = '3100rpx';
+          }
+          if (i == 2) {
+            _self.bohaiApplyHeight = '2500rpx';
+          }
+
+
           break;
         }
       }
@@ -832,6 +1062,8 @@ var _api = __webpack_require__(/*! @/config/api.js */ 25);function _interopRequi
         success: function success(res) {
           // 返回选定照片的本地文件路径列表，marryPath可以作为img标签的src属性显示图片
           var imgFiles = res.tempFilePaths[0];
+
+
           uni.uploadFile({
             // 需要上传的地址
             url: _api.UPLOAD,
@@ -847,11 +1079,14 @@ var _api = __webpack_require__(/*! @/config/api.js */ 25);function _interopRequi
               // console.log(res1.data )
               var w = JSON.parse(res1.data);
               if (e === 'thisRunningWater' || e === 'spouseRunningWater') {
-
+                _self.dataL[e].push(imgFiles);
                 _self.dataList[e].push(w.data);
-                return;
+
+              } else {
+                _self.dataList[e] = w.data;
+                _self.dataL[e] = imgFiles;
               }
-              _self.dataList[e] = w.data;
+
 
             } });
 

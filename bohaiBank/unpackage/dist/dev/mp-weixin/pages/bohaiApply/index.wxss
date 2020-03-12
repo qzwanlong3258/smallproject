@@ -1,4 +1,8 @@
 
+.changeTime.data-v-5b80acf6{
+	background: #FFFFFF;
+	border: 1px solid #EEEEEE;
+}
 .bohai-img.data-v-5b80acf6 {
 	display: block;
 	width: 100%;
@@ -7,9 +11,10 @@
 	font-size: 32rpx;
 	color: #333333;
 	background: rgba(255, 255, 255, 1);
-	height: 2600rpx;
+	
 	position: relative;
 	margin: 0 16px;
+	position: relative;
 }
 .bohaiApply_item.data-v-5b80acf6 {
 	height: 82rpx;
@@ -24,7 +29,7 @@
 	        flex-basis: 200rpx;
 	padding-left: 20rpx;
 	font-size:13px;
-	font-family:PingFangSC-Regular,PingFang SC;
+	
 	font-weight:400;
 	color:rgba(102,102,102,1);
 }
@@ -39,7 +44,7 @@
 	-webkit-align-items: center;
 	        align-items: center;
 	font-size:13px;
-	font-family:PingFangSC-Regular,PingFang SC;
+	
 	font-weight:400;
 }
 .bohai_item_content_bohai.data-v-5b80acf6 {
@@ -53,7 +58,7 @@
 }
 .title.data-v-5b80acf6{
 	padding-left: 5px;height:28px;
-	font-size:17px;
+	font-size:15px;
 	font-family:PingFangSC-Medium,PingFang SC;
 	font-weight:500;
 	color:rgba(51,51,51,1);
@@ -62,7 +67,7 @@
 .titleChild.data-v-5b80acf6{
 	width:87px;
 	height:24px;
-	font-size:15px;
+	font-size:14px;
 	font-family:PingFangSC-Regular,PingFang SC;
 	font-weight:400;
 	color:rgba(102,102,102,1);
@@ -98,13 +103,13 @@
 	right: 0;
 }
 .scroll-Y.data-v-5b80acf6{
-	height: 300px;
+	height: 260px;
 }
 .uni-input-style.data-v-5b80acf6 {
 	width: 100%;
 }
 .input_color.data-v-5b80acf6 {
-	
+	font-size:13px;
 	color:#999999;
 }
 .bohaiApply_ft.data-v-5b80acf6 {

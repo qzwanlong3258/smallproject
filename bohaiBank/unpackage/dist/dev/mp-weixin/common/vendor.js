@@ -734,7 +734,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -7009,7 +7009,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7030,14 +7030,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7113,7 +7113,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -8451,9 +8451,144 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* 9 */,
 /* 10 */,
 /* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */
+/* 12 */
+/*!**********************************************************************!*\
+  !*** D:/laragon/www/wl_project/bohaiBank/bohaiBank/config/router.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = {
+  LOGIN: '/pages/login/index', //授权登录页
+  APPLY: '/pages/bohaiApply/index' //申请页面
+};
+
+/***/ }),
+/* 13 */
+/*!**********************************************************************!*\
+  !*** D:/laragon/www/wl_project/bohaiBank/bohaiBank/utils/storage.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) { /**
+               * 对uni.setStorage()和uni.setStorageSync()的封装
+               * @param {string} key - 本地缓存中的指定的key
+               * @param {string|Object} data - 需要存储的内容
+               * @param {boolean} isSync - 是否同步设置缓存
+               * @return {void|Promise} 
+               */
+function setStorage() {var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var isSync = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+  if (isSync) {
+    return uni.setStorageSync(key, data);
+  } else {
+    return new Promise(function (resolve, reject) {
+      uni.setStorage({
+        key: key,
+        data: data,
+        success: function success() {
+          resolve();
+        },
+        fail: function fail(res) {
+          reject();
+        } });
+
+    });
+  }
+}
+
+/**
+   * 对uni.getStorage()和uni.getStorageSync()的封装
+   * @param {string} key - 本地缓存中指定的key
+   * @param {boolean} isSync - 是否同步获取缓存 
+   * @return {string|Promise}
+   */
+function getStorage() {var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var isSync = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  if (isSync) {
+    return uni.getStorageSync(key);
+  } else {
+    return new Promise(function (resolve, reject) {
+      uni.getStorage({
+        key: key,
+        success: function success(res) {resolve(res.data);},
+        fail: function fail(res) {reject(res);} });
+
+    });
+  }
+}
+
+
+/**
+   * 对uni.removeStorage()和uni.removeStorageSync()的封装
+   * @param {string} key - 本地缓存中指定的key
+   * @param {boolean} isSync - 是否同步移除指定的缓存
+   * @return {void|Promise} 
+   */
+function removeStorage() {var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var isSync = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  if (isSync) {
+    return uni.removeStorageSync(key);
+  } else {
+    return new Promise(function (resolve, reject) {
+      uni.removeStorage({
+        key: key,
+        success: function success() {resolve();},
+        fail: function fail(res) {reject();} });
+
+    });
+  }
+}
+
+/**
+   * 对uni.clearStorage()和uni.clearStorageSync()的封装
+   * @param {boolean} isSync - 是否同步清除缓存
+   * @return {void|Promise} 
+   */
+function clearStorage() {var isSync = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+  if (isSync) {
+    uni.clearStorageSync();
+  } else {
+    return new Promise(function (resolve, reject) {
+      uni.clearStorage({
+        success: function success() {resolve();},
+        fail: function fail(res) {reject(res);} });
+
+    });
+  }
+}
+
+/**
+   * 对uni.getStorageInfo()和uni.getStorageInfoSync()的封装
+   * @param {boolean} isSync - 是否同步获取缓存的信息
+   * @return {Object|Promise} 
+   */
+function getStorageInfo() {var isSync = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+  if (isSync) {
+    return uni.getStorageInfoSync();
+  } else {
+    return new Promise(function (resolve, reject) {
+      uni.getStorageInfo({
+        success: function success(res) {resolve(res);},
+        fail: function fail(res) {reject(res);} });
+
+    });
+  }
+}
+
+module.exports = {
+  setStorage: setStorage,
+  getStorage: getStorage,
+  removeStorage: removeStorage,
+  clearStorage: clearStorage,
+  getStorageInfo: getStorageInfo };
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 14 */,
+/* 15 */,
+/* 16 */
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
   \********************************************************************/
@@ -8559,13 +8694,13 @@ function normalizeComponent (
 
 
 /***/ }),
-/* 15 */,
-/* 16 */,
 /* 17 */,
 /* 18 */,
 /* 19 */,
 /* 20 */,
-/* 21 */
+/* 21 */,
+/* 22 */,
+/* 23 */
 /*!*********************************************************************!*\
   !*** D:/laragon/www/wl_project/bohaiBank/bohaiBank/config/image.js ***!
   \*********************************************************************/
@@ -8578,12 +8713,12 @@ var staticUrl = 'http://47.104.232.184/images';
 
 module.exports = {
   /** 授权 */
-  BOHAI: "".concat(staticUrl, "/20200311142811_bohai.png"),
+  BOHAI: "".concat(staticUrl, "/20200312141111_\u5FAE\u4FE1\u56FE\u7247_20200312140942.png"),
   BOHAI_LOGIN: "".concat(staticUrl, "/20200311142957_bohailogo.jpg"),
   RIGHT: "".concat(staticUrl, "/20200311155711_\u5BF9@2x.png") };
 
 /***/ }),
-/* 22 */
+/* 24 */
 /*!*****************************************************************!*\
   !*** D:/laragon/www/wl_project/bohaiBank/bohaiBank/api/auth.js ***!
   \*****************************************************************/
@@ -8591,10 +8726,10 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.sendVerificationCode = sendVerificationCode;exports.getPhoneLogin = getPhoneLogin;var _http = __webpack_require__(/*! @/config/http.js */ 23);
+Object.defineProperty(exports, "__esModule", { value: true });exports.sendVerificationCode = sendVerificationCode;exports.getPhoneLogin = getPhoneLogin;var _http = __webpack_require__(/*! @/config/http.js */ 25);
 
 
-var _api = __webpack_require__(/*! @/config/api.js */ 25);
+var _api = __webpack_require__(/*! @/config/api.js */ 26);
 
 
 
@@ -8622,7 +8757,7 @@ function getPhoneLogin(data) {
 }
 
 /***/ }),
-/* 23 */
+/* 25 */
 /*!********************************************************************!*\
   !*** D:/laragon/www/wl_project/bohaiBank/bohaiBank/config/http.js ***!
   \********************************************************************/
@@ -8630,7 +8765,7 @@ function getPhoneLogin(data) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {var _require = __webpack_require__(/*! ../utils/storage.js */ 24),getStorage = _require.getStorage;
+/* WEBPACK VAR INJECTION */(function(uni) {var _require = __webpack_require__(/*! ../utils/storage.js */ 13),getStorage = _require.getStorage;
 /**
                                                                                               * http请求，对uni.request()的封装
                                                                                               * @param {Object} obj - 整体参数
@@ -8753,127 +8888,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 24 */
-/*!**********************************************************************!*\
-  !*** D:/laragon/www/wl_project/bohaiBank/bohaiBank/utils/storage.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) { /**
-               * 对uni.setStorage()和uni.setStorageSync()的封装
-               * @param {string} key - 本地缓存中的指定的key
-               * @param {string|Object} data - 需要存储的内容
-               * @param {boolean} isSync - 是否同步设置缓存
-               * @return {void|Promise} 
-               */
-function setStorage() {var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var isSync = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-  if (isSync) {
-    return uni.setStorageSync(key, data);
-  } else {
-    return new Promise(function (resolve, reject) {
-      uni.setStorage({
-        key: key,
-        data: data,
-        success: function success() {
-          resolve();
-        },
-        fail: function fail(res) {
-          reject();
-        } });
-
-    });
-  }
-}
-
-/**
-   * 对uni.getStorage()和uni.getStorageSync()的封装
-   * @param {string} key - 本地缓存中指定的key
-   * @param {boolean} isSync - 是否同步获取缓存 
-   * @return {string|Promise}
-   */
-function getStorage() {var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var isSync = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-  if (isSync) {
-    return uni.getStorageSync(key);
-  } else {
-    return new Promise(function (resolve, reject) {
-      uni.getStorage({
-        key: key,
-        success: function success(res) {resolve(res.data);},
-        fail: function fail(res) {reject(res);} });
-
-    });
-  }
-}
-
-
-/**
-   * 对uni.removeStorage()和uni.removeStorageSync()的封装
-   * @param {string} key - 本地缓存中指定的key
-   * @param {boolean} isSync - 是否同步移除指定的缓存
-   * @return {void|Promise} 
-   */
-function removeStorage() {var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var isSync = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-  if (isSync) {
-    return uni.removeStorageSync(key);
-  } else {
-    return new Promise(function (resolve, reject) {
-      uni.removeStorage({
-        key: key,
-        success: function success() {resolve();},
-        fail: function fail(res) {reject();} });
-
-    });
-  }
-}
-
-/**
-   * 对uni.clearStorage()和uni.clearStorageSync()的封装
-   * @param {boolean} isSync - 是否同步清除缓存
-   * @return {void|Promise} 
-   */
-function clearStorage() {var isSync = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-  if (isSync) {
-    uni.clearStorageSync();
-  } else {
-    return new Promise(function (resolve, reject) {
-      uni.clearStorage({
-        success: function success() {resolve();},
-        fail: function fail(res) {reject(res);} });
-
-    });
-  }
-}
-
-/**
-   * 对uni.getStorageInfo()和uni.getStorageInfoSync()的封装
-   * @param {boolean} isSync - 是否同步获取缓存的信息
-   * @return {Object|Promise} 
-   */
-function getStorageInfo() {var isSync = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-  if (isSync) {
-    return uni.getStorageInfoSync();
-  } else {
-    return new Promise(function (resolve, reject) {
-      uni.getStorageInfo({
-        success: function success(res) {resolve(res);},
-        fail: function fail(res) {reject(res);} });
-
-    });
-  }
-}
-
-module.exports = {
-  setStorage: setStorage,
-  getStorage: getStorage,
-  removeStorage: removeStorage,
-  clearStorage: clearStorage,
-  getStorageInfo: getStorageInfo };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 25 */
+/* 26 */
 /*!*******************************************************************!*\
   !*** D:/laragon/www/wl_project/bohaiBank/bohaiBank/config/api.js ***!
   \*******************************************************************/
@@ -8890,21 +8905,6 @@ module.exports = {
   SEND_VERIFICATION_CODE: "".concat(baseUrl, "/info/code"),
   SUBMIT: "".concat(baseUrl, "/info/submit"),
   UPLOAD: "".concat(baseUrl, "/ftp/upload") };
-
-/***/ }),
-/* 26 */
-/*!**********************************************************************!*\
-  !*** D:/laragon/www/wl_project/bohaiBank/bohaiBank/config/router.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = {
-  LOGIN: '/pages/login/index', //授权登录页
-  APPLY: '/pages/bohaiApply/index' //申请页面
-};
 
 /***/ }),
 /* 27 */,
@@ -8934,10 +8934,10 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.submitData = submitData;var _http = __webpack_require__(/*! @/config/http.js */ 23);
+Object.defineProperty(exports, "__esModule", { value: true });exports.submitData = submitData;var _http = __webpack_require__(/*! @/config/http.js */ 25);
 
 
-var _api = __webpack_require__(/*! @/config/api.js */ 25);
+var _api = __webpack_require__(/*! @/config/api.js */ 26);
 
 
 
